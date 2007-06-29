@@ -1,0 +1,19 @@
+---
+name: WWW-FreshBooks-API
+version: v0.0.1
+author:
+  - 'Anthony Decena <anthony@mindelusions.com>'
+abstract: Perl interface to the FreshBooks API v2.0
+license: perl
+resources:
+  license: http://dev.perl.org/licenses/
+build_requires:
+  Test::More: 0
+provides:
+  WWW::FreshBooks::API:
+    file: lib/WWW/FreshBooks/API.pm
+    version: v0.0.1
+generated_by: Module::Build version 0.2806
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2
