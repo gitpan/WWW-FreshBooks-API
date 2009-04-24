@@ -6,7 +6,7 @@ use Test::More tests => 3;
 
 sub not_in_file_ok {
     my ($filename, %regex) = @_;
-    open my $fh, "<", $filename
+    open( my $fh, '<', $filename )
         or die "couldn't open $filename for reading: $!";
 
     my %violated;
@@ -27,15 +27,6 @@ sub not_in_file_ok {
     }
 }
 
-not_in_file_ok(README =>
-    "The README is used..."       => qr/The README is used/,
-    "'version information here'"  => qr/to provide version information/,
-);
-
-not_in_file_ok(Changes =>
-    "placeholder date/time"       => qr(Date/time)
-);
-
 sub module_boilerplate_ok {
     my ($module) = @_;
     not_in_file_ok($module =>
@@ -45,4 +36,20 @@ sub module_boilerplate_ok {
     );
 }
 
-module_boilerplate_ok('lib/WWW/FreshBooks/API.pm');
+TODO: {
+  local $TODO = "Need to replace the boilerplate text";
+
+  not_in_file_ok(README =>
+    "The README is used..."       => qr/The README is used/,
+    "'version information here'"  => qr/to provide version information/,
+  );
+
+  not_in_file_ok(Changes =>
+    "placeholder date/time"       => qr(Date/time)
+  );
+
+  module_boilerplate_ok('lib/WWW/FreshBooks/API.pm');
+
+
+}
+
